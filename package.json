@@ -1,7 +1,7 @@
 {
   "name": "quantumleap-web",
   "version": "0.0.1",
-  "description": "TypeScript + Bun Exampmle",
+  "description": "NextJS+TailwindCSS",
   "author": "@ultemica",
   "private": true,
   "license": "MIT",
