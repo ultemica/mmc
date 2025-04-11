@@ -1,6 +1,6 @@
-## TypeScript + Bun
+## TypeScript + Bun + NextJS + TailwindCSS
 
-TypeScript + Bunで動作するテンプレートレポジトリです
+TypeScript + Bun + NextJS + TailwindCSSで動作するSSRのウェブサイトです
 
 ### 技術スタック
 
