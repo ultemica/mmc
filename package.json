@@ -1,8 +1,8 @@
 {
-  "name": "typescript",
+  "name": "quantumleap-web",
   "version": "0.0.1",
   "description": "TypeScript + Bun Exampmle",
-  "author": "AUTHORE NAME",
+  "author": "@ultemica",
   "private": true,
   "license": "MIT",
   "config": {
