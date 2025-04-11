@@ -1,4 +1,3 @@
-import { Button } from '@/components/ui/button'
 // components/header.tsx
 import Link from 'next/link'
 import { ModeToggle } from './theme-toggle'

@@ -5,6 +5,7 @@
   },
   "linter": {
     "enabled": true,
+    "ignore": ["src/components/ui/*.tsx"],
     "rules": {
       "recommended": true,
       "correctness": {
@@ -17,7 +18,7 @@
   "formatter": {
     "enabled": true,
     "formatWithErrors": false,
-    "ignore": [],
+    "ignore": ["src/components/ui/*.tsx"],
     "attributePosition": "auto",
     "indentStyle": "space",
     "indentWidth": 2,
