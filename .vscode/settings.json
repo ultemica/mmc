@@ -2,7 +2,6 @@
   "gitdoc.enabled": true,
   "gitdoc.commitValidationLevel": "warning",
   "gitdoc.autoCommitDelay": 30000,
-  "gitdoc.autPull": "onPush",
   "gitdoc.autoPush": "onCommit",
   "gitdoc.ai.model": "gpt-4o",
   "gitdoc.autoPull": "onPush",
@@ -19,10 +18,10 @@
     "editor.defaultFormatter": "biomejs.biome"
   },
   "[typescriptreact]": {
-    "editor.defaultFormatter": "biomejs.biome"
+    "editor.defaultFormatter": "vscode.typescript-language-features"
   },
   "[json]": {
-    "editor.defaultFormatter": "biomejs.biome"
+    "editor.defaultFormatter": "vscode.json-language-features"
   },
   "[jsonc]": {
     "editor.defaultFormatter": "biomejs.biome"

@@ -1,5 +1,5 @@
 {
-  "name": "Quantumleap",
+  "name": "MMC",
   "dockerComposeFile": ["docker-compose.yaml"],
   "service": "node",
   "workspaceFolder": "/home/vscode/app",
