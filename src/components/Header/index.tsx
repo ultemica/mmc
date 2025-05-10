@@ -39,7 +39,6 @@ const timePhases = [
 ]
 
 export default function Header() {
-  // 0:朝, 1:昼, 2:夕方, 3:夜, 4:深夜
   const [phase, setPhase] = useState(1)
 
   const advanceTime = () => setPhase((prev) => (prev + 1) % timePhases.length)
@@ -53,7 +52,6 @@ export default function Header() {
     >
       <div className='flex items-center justify-between px-4 sm:px-8 py-4 sm:py-6 max-w-4xl mx-auto w-full'>
         <div className='flex items-center gap-4'>
-          {/* 段階ごとの空アイコン */}
           <span className='flex items-center justify-center'>
             <Icon className={`${iconColor} drop-shadow text-2xl sm:text-4xl`} aria-label={label} />
           </span>
@@ -67,7 +65,7 @@ export default function Header() {
             size='icon'
             aria-label='Advance time'
             onClick={advanceTime}
-            className='text-gray-700 dark:text-gray-200 bg-transparent hover:bg-gray-100 dark:hover:bg-gray-700 font-bold text-base'
+            className='text-gray-700 dark:text-gray-200 bg-transparent hover:bg-gray-200/60 dark:hover:bg-gray-700/60 active:bg-gray-300/70 dark:active:bg-gray-800/70 font-bold text-base transition-colors'
           >
             <FiRotateCw size={28} />
           </Button>
@@ -75,7 +73,7 @@ export default function Header() {
             variant='ghost'
             size='icon'
             aria-label='Open menu'
-            className='text-gray-400 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800'
+            className='text-gray-400 dark:text-gray-300 bg-transparent hover:bg-gray-200/60 dark:hover:bg-gray-800/60 active:bg-gray-300/70 dark:active:bg-gray-900/70 transition-colors'
           >
             <FiMenu size={28} />
           </Button>
