@@ -35,7 +35,7 @@ export default function Chatroom() {
   }
 
   return (
-    <div className='flex flex-col items-center justify-center min-h-[400px]'>
+    <div className='flex flex-col items-center justify-center my-6'>
       <div
         className='relative'
         style={{
