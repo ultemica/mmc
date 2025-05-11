@@ -1,6 +1,7 @@
-import { FaBolt, FaComments, FaList, FaUser } from 'react-icons/fa6'
+import { FaBolt, FaHouse, FaList, FaRegCommentDots, FaUser } from 'react-icons/fa6'
 
 export enum TabType {
+  HOME = 'home',
   LOG = 'log',
   PEOPLE = 'people',
   CHAT = 'chat',
@@ -16,6 +17,12 @@ type TabInputType = {
 
 export const tabs: TabInputType[] = [
   {
+    value: TabType.HOME,
+    icon: FaHouse,
+    label: 'Home',
+    href: '/'
+  },
+  {
     value: TabType.LOG,
     icon: FaList,
     label: 'Log',
@@ -29,7 +36,7 @@ export const tabs: TabInputType[] = [
   },
   {
     value: TabType.CHAT,
-    icon: FaComments,
+    icon: FaRegCommentDots,
     label: 'Chat',
     href: '/chats'
   },
