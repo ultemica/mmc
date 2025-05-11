@@ -121,7 +121,7 @@ export default function Messages() {
   return (
     <Container>
       <strong>イベントログ</strong>
-      <div className='max-h-60 '>
+      <div className='max-h-60'>
         <div className='mb-4'>
           <div className='flex items-center mb-2'>
             <span className='text-xs font-bold text-gray-500 dark:text-gray-400 mr-2'>Day {latestDay}</span>
@@ -144,7 +144,7 @@ export default function Messages() {
             <DialogTitle>イベントログ</DialogTitle>
             <DialogDescription>これまでの全メッセージを確認できます。</DialogDescription>
           </DialogHeader>
-          <div className='rounded-lg max-h-full p-4 overflow-y-auto bg-gray-50 dark:bg-gray-900'>
+          <div className='rounded-lg py-4 overflow-y-auto bg-gray-50 dark:bg-gray-900'>
             {sortedDays.map((day) => (
               <div key={day} className='mb-4'>
                 <div className='flex items-center mb-2'>
