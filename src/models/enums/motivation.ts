@@ -1,0 +1,32 @@
+export enum Motivation {
+  Invitation = 'Invitation', // 招待された
+  Work = 'Work', // 仕事で来た
+  Investigation = 'Investigation', // 調査・捜査
+  Vacation = 'Vacation', // 休暇・旅行
+  FamilyVisit = 'FamilyVisit', // 家族に会いに来た
+  Reunion = 'Reunion', // 同窓会・再会
+  Celebration = 'Celebration', // 祝い事
+  Business = 'Business', // 商談
+  Curiosity = 'Curiosity', // 興味本位
+  Hiding = 'Hiding', // 身を隠すため
+  Escape = 'Escape', // 逃亡
+  Research = 'Research', // 研究
+  Romance = 'Romance', // 恋愛
+  Blackmail = 'Blackmail', // 脅迫
+  Heir = 'Heir', // 遺産相続
+  Delivery = 'Delivery', // 配達
+  Accident = 'Accident', // 偶然
+  Security = 'Security', // 警備
+  InvitationByFriend = 'InvitationByFriend', // 友人に誘われた
+  SecretMeeting = 'SecretMeeting', // 秘密の会合
+  DebtCollection = 'DebtCollection', // 取り立て
+  SeekingHelp = 'SeekingHelp', // 助けを求めて
+  Witness = 'Witness', // 目撃者
+  Revenge = 'Revenge', // 復讐
+  Lost = 'Lost', // 道に迷った
+  MedicalTreatment = 'MedicalTreatment', // 治療・診察
+  DeliveryOfGoods = 'DeliveryOfGoods', // 荷物の受け渡し
+  LookingForSomeone = 'LookingForSomeone', // 人探し
+  Secret = 'Secret', // 言えない理由
+  Unknown = 'Unknown' // 不明・本人も分からない
+}
