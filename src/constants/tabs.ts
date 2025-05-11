@@ -2,7 +2,7 @@ import { FaBolt, FaHouse, FaList, FaRegCommentDots, FaUser } from 'react-icons/f
 
 export enum TabType {
   HOME = 'home',
-  LOG = 'log',
+  EVENT = 'event',
   PEOPLE = 'people',
   CHAT = 'chat',
   ACTION = 'action'
@@ -23,10 +23,10 @@ export const tabs: TabInputType[] = [
     href: '/'
   },
   {
-    value: TabType.LOG,
+    value: TabType.EVENT,
     icon: FaList,
-    label: 'Log',
-    href: '/logs'
+    label: 'Event',
+    href: '/events'
   },
   {
     value: TabType.PEOPLE,
