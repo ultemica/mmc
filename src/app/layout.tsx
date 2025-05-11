@@ -4,8 +4,14 @@ import Footer from '@/components/Footer'
 import Header from '@/components/Header'
 
 export const metadata: Metadata = {
-  title: 'Case Closed',
-  description: 'Murder Mystery with ChatGPT'
+  title: 'MMC',
+  description: 'Murder Mystery with ChatGPT',
+  icons: {
+    icon: [
+      { url: '/icons/icon-192x192.png', sizes: '192x192', type: 'image/png' },
+      { url: '/icons/icon-512x512.png', sizes: '512x512', type: 'image/png' }
+    ]
+  }
 }
 
 export default function RootLayout({
