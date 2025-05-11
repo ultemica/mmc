@@ -1,0 +1,17 @@
+{
+  "name": "MMC",
+  "short_name": "MMC",
+  "description": "Murder Mistery with ChatGPT",
+  "start_url": "/",
+  "display": "fullscreen",
+  "background_color": "#34A5A8",
+  "theme_color": "#34A5A8",
+  "icons": [
+    {
+      "src": "/icons/icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    }
+  ],
+  "screenshots": []
+}

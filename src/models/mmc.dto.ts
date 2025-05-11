@@ -26,6 +26,7 @@ export const PhaseSchema = z.object({
 export const EventSchema = z.object({
   day: z.number().int().min(0),
   phase: z.nativeEnum(PhaseType),
+  target: z.number().int().min(0).nullable(), // イベントの対象となるプレイヤーのID
   prob: z.number().min(0).max(1).default(1), // 発生確率
   description: z.string().optional() // イベントの内容
 })
@@ -38,6 +39,8 @@ export const HistorySchema = z.object({
 })
 
 export const SettingSchema = z.object({
+  title: z.string(), // シナリオタイトル
+  description: z.string(), // シナリオの説明
   max_dead_count: z.number().int().min(0), // 最大死亡人数
   end_day_count: z.number().int().min(1) // 終了日数
 })

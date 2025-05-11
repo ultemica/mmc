@@ -65,7 +65,8 @@ export const characters: Player[] = [
     blood_type: BloodType.A,
     family: [Family.Father, Family.Mother],
     status: Status.Calm,
-    is_alive: true
+    is_alive: true,
+    affection: 0
   },
   {
     id: 9,
@@ -112,7 +113,8 @@ export const characters: Player[] = [
     blood_type: BloodType.O,
     family: [Family.Wife],
     status: Status.Confident,
-    is_alive: true
+    is_alive: true,
+    affection: 0
   },
   {
     id: 7,
@@ -150,7 +152,8 @@ export const characters: Player[] = [
     blood_type: BloodType.B,
     family: [Family.Mother],
     status: Status.Excited,
-    is_alive: true
+    is_alive: true,
+    affection: 0
   },
   {
     id: 10,
@@ -188,7 +191,8 @@ export const characters: Player[] = [
     blood_type: BloodType.AB,
     family: [Family.Father, Family.Mother, Family.Sister],
     status: Status.Agitated,
-    is_alive: true
+    is_alive: true,
+    affection: 0
   },
   {
     id: 5,
@@ -226,6 +230,7 @@ export const characters: Player[] = [
     blood_type: BloodType.AB,
     family: [Family.None],
     status: Status.Nervous,
-    is_alive: true
+    is_alive: true,
+    affection: 0
   }
 ]
