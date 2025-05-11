@@ -174,20 +174,21 @@ export enum Status {
   Unknown = 'Unknown' // 不明
 }
 
-export const Message = z.object({
+export const MessageSchema = z.object({
   id: z.string(),
   phase: z.number().int(),
   day: z.number().int(),
   content: z.string(),
-  sender: z.number().int(),
-  receiver: z.number().int()
+  speaker: z.number().int(),
+  intended_listener: z.array(z.number().int()),
+  actual_listener: z.array(z.number().int())
 })
 
-export const Character = z.object({
+export const PlayerSchema = z.object({
   id: z.number().int(),
   name: z.string(),
   theme_color: z.string(),
-  messages: z.array(Message),
+  messages: z.array(MessageSchema),
   age: z.number().int(),
   sex: z.nativeEnum(Sex),
   personality: z.nativeEnum(personality),
@@ -201,3 +202,6 @@ export const Character = z.object({
   family: z.array(z.nativeEnum(Family)),
   status: z.nativeEnum(Status)
 })
+
+export type Player = z.infer<typeof PlayerSchema>
+export type Message = z.infer<typeof MessageSchema>
