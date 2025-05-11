@@ -1,31 +1,42 @@
-import { FaBolt, FaComments, FaInfo } from 'react-icons/fa6'
+import { FaBolt, FaComments, FaList, FaUser } from 'react-icons/fa6'
 
 export enum TabType {
-  INFO = 'info',
+  LOG = 'log',
+  PEOPLE = 'people',
   CHAT = 'chat',
   ACTION = 'action'
 }
 
 type TabInputType = {
   value: TabType
+  href: string
   icon: React.ComponentType<{ size?: number }>
   label: string
 }
 
 export const tabs: TabInputType[] = [
   {
-    value: TabType.INFO,
-    icon: FaInfo,
-    label: 'Info'
+    value: TabType.LOG,
+    icon: FaList,
+    label: 'Log',
+    href: '/logs'
+  },
+  {
+    value: TabType.PEOPLE,
+    icon: FaUser,
+    label: 'People',
+    href: '/characters'
   },
   {
     value: TabType.CHAT,
     icon: FaComments,
-    label: 'Chat'
+    label: 'Chat',
+    href: '/chats'
   },
   {
     value: TabType.ACTION,
     icon: FaBolt,
-    label: 'Action'
+    label: 'Action',
+    href: '/actions'
   }
 ]
