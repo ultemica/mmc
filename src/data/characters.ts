@@ -1,16 +1,14 @@
-import {
-  BloodType,
-  Family,
-  Hobby,
-  Job,
-  Motivation,
-  type Player,
-  Sex,
-  Skill,
-  Status,
-  ThemeColor,
-  personality
-} from '../models/characters.dto'
+import type { Player } from '@/models/characters.dto'
+import { BloodType } from '@/models/enums/blood_type'
+import { Family } from '@/models/enums/family'
+import { Hobby } from '@/models/enums/hobby'
+import { Job } from '@/models/enums/job'
+import { Motivation } from '@/models/enums/motivation'
+import { Personality } from '@/models/enums/personality'
+import { Sex } from '@/models/enums/sex'
+import { Skill } from '@/models/enums/skill'
+import { Status } from '@/models/enums/status'
+import { ThemeColor } from '@/models/enums/theme_color'
 
 export const characters: Player[] = [
   {
@@ -57,7 +55,7 @@ export const characters: Player[] = [
     ],
     age: 25,
     sex: Sex.Female,
-    personality: personality.Friendly,
+    personality: Personality.Friendly,
     job: Job.Teacher,
     motivation: Motivation.Curiosity,
     skills: [Skill.Persuasion, Skill.Empathy],
@@ -66,7 +64,8 @@ export const characters: Player[] = [
     weight: 50,
     blood_type: BloodType.A,
     family: [Family.Father, Family.Mother],
-    status: Status.Calm
+    status: Status.Calm,
+    is_alive: true
   },
   {
     id: 2,
@@ -103,7 +102,7 @@ export const characters: Player[] = [
     ],
     age: 30,
     sex: Sex.Male,
-    personality: personality.Calm,
+    personality: Personality.Calm,
     job: Job.Engineer,
     motivation: Motivation.Work,
     skills: [Skill.Technology, Skill.Observation],
@@ -112,7 +111,8 @@ export const characters: Player[] = [
     weight: 68,
     blood_type: BloodType.O,
     family: [Family.Wife],
-    status: Status.Confident
+    status: Status.Confident,
+    is_alive: true
   },
   {
     id: 3,
@@ -140,7 +140,7 @@ export const characters: Player[] = [
     ],
     age: 22,
     sex: Sex.Female,
-    personality: personality.Curious,
+    personality: Personality.Curious,
     job: Job.Student,
     motivation: Motivation.Investigation,
     skills: [Skill.Research, Skill.Memory],
@@ -149,7 +149,8 @@ export const characters: Player[] = [
     weight: 45,
     blood_type: BloodType.B,
     family: [Family.Mother],
-    status: Status.Excited
+    status: Status.Excited,
+    is_alive: true
   },
   {
     id: 4,
@@ -177,7 +178,7 @@ export const characters: Player[] = [
     ],
     age: 28,
     sex: Sex.Male,
-    personality: personality.Leader,
+    personality: Personality.Leader,
     job: Job.Businessperson,
     motivation: Motivation.Business,
     skills: [Skill.Negotiation, Skill.Persuasion],
@@ -186,7 +187,8 @@ export const characters: Player[] = [
     weight: 75,
     blood_type: BloodType.AB,
     family: [Family.Father, Family.Mother, Family.Sister],
-    status: Status.Agitated
+    status: Status.Agitated,
+    is_alive: true
   },
   {
     id: 5,
@@ -214,7 +216,7 @@ export const characters: Player[] = [
     ],
     age: 27,
     sex: Sex.Female,
-    personality: personality.Ambitious,
+    personality: Personality.Ambitious,
     job: Job.Scientist,
     motivation: Motivation.Research,
     skills: [Skill.Research, Skill.Deduction],
@@ -223,6 +225,7 @@ export const characters: Player[] = [
     weight: 52,
     blood_type: BloodType.AB,
     family: [Family.None],
-    status: Status.Nervous
+    status: Status.Nervous,
+    is_alive: true
   }
 ]

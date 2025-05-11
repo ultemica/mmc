@@ -9,16 +9,7 @@ import { Sex } from './enums/sex'
 import { Skill } from './enums/skill'
 import { Status } from './enums/status'
 import { ThemeColor } from './enums/theme_color'
-
-export const MessageSchema = z.object({
-  id: z.string(),
-  phase: z.number().int(),
-  day: z.number().int(),
-  content: z.string(),
-  speaker: z.number().int(),
-  intended_listener: z.array(z.number().int()),
-  actual_listener: z.array(z.number().int())
-})
+import { MessageSchema } from './message'
 
 export const PlayerSchema = z.object({
   id: z.number().int(),
@@ -41,4 +32,3 @@ export const PlayerSchema = z.object({
 })
 
 export type Player = z.infer<typeof PlayerSchema>
-export type Message = z.infer<typeof MessageSchema>

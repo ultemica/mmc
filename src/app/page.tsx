@@ -1,10 +1,10 @@
 import Messages from '@/components/Message'
-import Chatroom from '@/components/Table'
+import TableTalk from '@/components/TableTalk'
 
 export default function Page() {
   return (
     <>
-      <Chatroom />
+      <TableTalk />
       <Messages />
     </>
   )

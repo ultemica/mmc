@@ -1,6 +1,8 @@
 'use client'
+import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
 import { Button } from '@/components/ui/button'
 import { characters } from '@/data/characters'
+import { cn } from '@/lib/utils'
 import { useRef, useState } from 'react'
 import Container from '../Container'
 
@@ -9,7 +11,7 @@ const OUTER_MARGIN = 40
 const TABLE_SIZE = 90
 const CENTER = RADIUS + OUTER_MARGIN
 
-export default function Table() {
+export default function TableTalk() {
   const [selected, setSelected] = useState(0) // 選択中キャラindex
   const [rotation, setRotation] = useState(270) // 現在の回転角
   const prevSelected = useRef(0)
@@ -50,29 +52,38 @@ export default function Table() {
               const x = CENTER + Math.cos(rad) * RADIUS
               const y = CENTER + Math.sin(rad) * RADIUS
               return (
-                <Button
+                <div
                   key={char.id}
-                  onClick={() => handleSelect(idx)}
-                  variant={selected === idx ? 'default' : 'outline'}
-                  aria-label={char.name}
-                  className={[
-                    'absolute flex items-center justify-center select-none transition-all duration-300 cursor-pointer font-bold',
-                    'translate-x-[-1/2] translate-y-[-1/2] rounded-full',
-                    'text-white',
-                    selected === idx
-                      ? 'z-20 border-4 border-white shadow-xl w-20 h-20 text-lg'
-                      : 'z-10 border-2 border-gray-300 shadow-md w-16 h-16 text-base'
-                  ].join(' ')}
+                  className='absolute flex flex-col items-center'
                   style={{
                     left: x,
                     top: y,
-                    background: char.theme_color,
-                    // Tailwindでrotateはできるが、動的値なのでstyleで指定
                     transform: `translate(-50%, -50%) rotate(${-rotation}deg)`
                   }}
                 >
-                  {char.name}
-                </Button>
+                  <Button
+                    onClick={() => handleSelect(idx)}
+                    variant={selected === idx ? 'default' : 'outline'}
+                    aria-label={char.name}
+                    className={cn(
+                      'flex items-center justify-center select-none transition-all duration-300 cursor-pointer font-bold rounded-full text-white p-0',
+                      selected === idx
+                        ? 'z-20 border-4 border-white shadow-xl w-20 h-20 text-lg'
+                        : 'z-10 border-2 border-gray-300 shadow-md w-16 h-16 text-base'
+                    )}
+                    style={{
+                      background: char.theme_color
+                    }}
+                  >
+                    <Avatar className='w-full h-full'>
+                      <AvatarImage src={`/assets/0${char.id}.png`} alt={char.name} />
+                      <AvatarFallback>{char.name.slice(0, 2)}</AvatarFallback>
+                    </Avatar>
+                  </Button>
+                  <span className='mt-1 text-xs text-white drop-shadow font-bold pointer-events-none select-none'>
+                    {char.name}
+                  </span>
+                </div>
               )
             })}
           </div>
