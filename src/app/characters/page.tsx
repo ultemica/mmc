@@ -1,5 +1,6 @@
 'use client'
 import 'keen-slider/keen-slider.min.css'
+import Container from '@/components/Container'
 import { Avatar, AvatarImage } from '@/components/ui/avatar'
 import { Button } from '@/components/ui/button'
 import { characters } from '@/data/characters'
@@ -21,7 +22,7 @@ export default function Page() {
   })
 
   return (
-    <>
+    <Container>
       <div ref={ref} className='keen-slider'>
         {characters.map((char) => (
           <div key={char.id} className='keen-slider__slide flex flex-col items-center my-4'>
@@ -51,6 +52,6 @@ export default function Page() {
           />
         ))}
       </div>
-    </>
+    </Container>
   )
 }
