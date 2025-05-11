@@ -1,5 +1,6 @@
 'use client'
 import { Button } from '@/components/ui/button'
+import { cn } from '@/lib/utils'
 import { useState } from 'react'
 import { FiMenu } from 'react-icons/fi'
 import { FiMoon, FiRotateCw, FiSun, FiSunrise, FiSunset } from 'react-icons/fi'
@@ -47,15 +48,19 @@ export default function Header() {
 
   return (
     <header
-      className={`transition-colors duration-700 border-b border-gray-200 dark:border-gray-700 shadow-sm
-        bg-gradient-to-r ${bg} flex items-center`}
+      className={cn(
+        'transition-colors duration-700 border-b border-gray-200 dark:border-gray-700 shadow-sm',
+        'bg-gradient-to-r',
+        bg,
+        'flex items-center'
+      )}
     >
-      <div className='flex items-center justify-between px-4 sm:px-8 py-4 sm:py-6 max-w-4xl mx-auto w-full'>
+      <div className='flex items-center justify-between px-4 sm:px-0 py-4 sm:py-6 mx-auto w-full sm:max-w-xl '>
         <div className='flex items-center gap-4'>
           <span className='flex items-center justify-center'>
-            <Icon className={`${iconColor} drop-shadow text-2xl sm:text-4xl`} aria-label={label} />
+            <Icon className={cn(iconColor, 'drop-shadow text-2xl sm:text-3xl')} aria-label={label} />
           </span>
-          <span className='font-bold text-lg sm:text-2xl text-gray-800 dark:text-gray-100 tracking-wide select-none drop-shadow'>
+          <span className='font-bold text-lg sm:text-xl text-gray-800 dark:text-gray-100 tracking-wide select-none drop-shadow'>
             Day 1
           </span>
         </div>
@@ -65,7 +70,9 @@ export default function Header() {
             size='icon'
             aria-label='Advance time'
             onClick={advanceTime}
-            className='text-gray-700 dark:text-gray-200 bg-transparent hover:bg-gray-200/60 dark:hover:bg-gray-700/60 active:bg-gray-300/70 dark:active:bg-gray-800/70 font-bold text-base transition-colors'
+            className={cn(
+              'text-gray-700 dark:text-gray-200 bg-transparent hover:bg-gray-200/60 dark:hover:bg-gray-700/60 active:bg-gray-300/70 dark:active:bg-gray-800/70 font-bold text-base transition-colors'
+            )}
           >
             <FiRotateCw size={28} />
           </Button>
@@ -73,7 +80,9 @@ export default function Header() {
             variant='ghost'
             size='icon'
             aria-label='Open menu'
-            className='text-gray-400 dark:text-gray-300 bg-transparent hover:bg-gray-200/60 dark:hover:bg-gray-800/60 active:bg-gray-300/70 dark:active:bg-gray-900/70 transition-colors'
+            className={cn(
+              'text-gray-400 dark:text-gray-300 bg-transparent hover:bg-gray-200/60 dark:hover:bg-gray-800/60 active:bg-gray-300/70 dark:active:bg-gray-900/70 transition-colors'
+            )}
           >
             <FiMenu size={28} />
           </Button>

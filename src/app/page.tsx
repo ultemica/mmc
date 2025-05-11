@@ -1,4 +1,4 @@
-import Chatroom from '@/components/Chat'
+import Chatroom from '@/components/Table'
 
 export default function Page() {
   return (

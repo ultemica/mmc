@@ -1,6 +1,8 @@
 import type { Metadata } from 'next'
 import './globals.css'
+import Footer from '@/components/Footer'
 import Header from '@/components/Header'
+import { TabType } from '@/constants/tabs'
 
 export const metadata: Metadata = {
   title: 'Case Closed',
@@ -12,6 +14,10 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode
 }>) {
+  const onChange = (value: TabType) => {
+    console.log(value)
+  }
+
   return (
     <html lang='ja'>
       <head>
@@ -25,6 +31,7 @@ export default function RootLayout({
       <body className='bg-[#18181b] text-gray-200'>
         <Header />
         {children}
+        <Footer value={TabType.INFO} onChange={onChange} />
       </body>
     </html>
   )
