@@ -8,6 +8,7 @@ import {
   Sex,
   Skill,
   Status,
+  ThemeColor,
   personality
 } from '../models/characters.dto'
 
@@ -15,7 +16,7 @@ export const characters: Player[] = [
   {
     id: 1,
     name: 'Alice',
-    theme_color: '#f87171',
+    theme_color: ThemeColor.Red,
     messages: [
       {
         id: 'a1',
@@ -70,7 +71,7 @@ export const characters: Player[] = [
   {
     id: 2,
     name: 'Bob',
-    theme_color: '#60a5fa',
+    theme_color: ThemeColor.Blue,
     messages: [
       {
         id: 'b1',
@@ -116,7 +117,7 @@ export const characters: Player[] = [
   {
     id: 3,
     name: 'Carol',
-    theme_color: '#34d399',
+    theme_color: ThemeColor.Green,
     messages: [
       {
         id: 'c1',
@@ -153,7 +154,7 @@ export const characters: Player[] = [
   {
     id: 4,
     name: 'Dave',
-    theme_color: '#fbbf24',
+    theme_color: ThemeColor.Yellow,
     messages: [
       {
         id: 'd1',
@@ -190,7 +191,7 @@ export const characters: Player[] = [
   {
     id: 5,
     name: 'Eve',
-    theme_color: '#a78bfa',
+    theme_color: ThemeColor.Purple,
     messages: [
       {
         id: 'e1',

@@ -174,6 +174,14 @@ export enum Status {
   Unknown = 'Unknown' // 不明
 }
 
+export enum ThemeColor {
+  Red = '#f87171',
+  Blue = '#60a5fa',
+  Green = '#34d399',
+  Yellow = '#fbbf24',
+  Purple = '#a78bfa'
+}
+
 export const MessageSchema = z.object({
   id: z.string(),
   phase: z.number().int(),
@@ -187,7 +195,7 @@ export const MessageSchema = z.object({
 export const PlayerSchema = z.object({
   id: z.number().int(),
   name: z.string(),
-  theme_color: z.string(),
+  theme_color: z.nativeEnum(ThemeColor),
   messages: z.array(MessageSchema),
   age: z.number().int(),
   sex: z.nativeEnum(Sex),
