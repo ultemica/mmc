@@ -2,11 +2,11 @@ import { z } from 'zod'
 import { PlayerSchema } from './characters.dto'
 import { MessageSchema } from './message.dto'
 
-export enum GameState {
-  Waiting = 'waiting',
-  InProgress = 'in_progress',
-  Finished = 'finished'
-}
+// export enum GameState {
+//   Waiting = 'waiting',
+//   InProgress = 'in_progress',
+//   Finished = 'finished'
+// }
 
 export enum PhaseType {
   Morning = 'morning',
@@ -47,9 +47,9 @@ export const SettingSchema = z.object({
 
 export const GameStateSchema = z.object({
   day: z.number().int(), // 現在の経過日数
-  events: z.array(EventSchema), // イベント情報
-  phase: PhaseSchema, /// 現在のフェーズ
-  state: z.nativeEnum(GameState) // ゲームの状態
+  // events: z.array(EventSchema), // イベント情報
+  phase: z.nativeEnum(PhaseType) /// 現在のフェーズ
+  // state: z.nativeEnum(GameState) // ゲームの状態
 })
 
 export const MMCSchema = z.object({
@@ -63,3 +63,4 @@ export const MMCSchema = z.object({
 export type MMC = z.infer<typeof MMCSchema>
 export type Phase = z.infer<typeof PhaseSchema>
 export type Event = z.infer<typeof EventSchema>
+export type GameState = z.infer<typeof GameStateSchema>
