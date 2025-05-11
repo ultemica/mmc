@@ -66,7 +66,7 @@ export default function Table() {
                   style={{
                     left: x,
                     top: y,
-                    background: char.color,
+                    background: char.theme_color,
                     // Tailwindでrotateはできるが、動的値なのでstyleで指定
                     transform: `translate(-50%, -50%) rotate(${-rotation}deg)`
                   }}
