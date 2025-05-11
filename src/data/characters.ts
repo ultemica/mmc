@@ -12,7 +12,7 @@ import { ThemeColor } from '@/models/enums/theme_color'
 
 export const characters: Player[] = [
   {
-    id: 1,
+    id: 11,
     name: 'Alice',
     theme_color: ThemeColor.Red,
     messages: [
@@ -68,7 +68,7 @@ export const characters: Player[] = [
     is_alive: true
   },
   {
-    id: 2,
+    id: 9,
     name: 'Bob',
     theme_color: ThemeColor.Blue,
     messages: [
@@ -115,7 +115,7 @@ export const characters: Player[] = [
     is_alive: true
   },
   {
-    id: 3,
+    id: 7,
     name: 'Carol',
     theme_color: ThemeColor.Green,
     messages: [
@@ -153,7 +153,7 @@ export const characters: Player[] = [
     is_alive: true
   },
   {
-    id: 4,
+    id: 10,
     name: 'Dave',
     theme_color: ThemeColor.Yellow,
     messages: [
