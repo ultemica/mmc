@@ -7,7 +7,7 @@ import { useState } from 'react'
 import Container from '../Container'
 
 export default function Footer() {
-  const [value, setValue] = useState<TabType>(TabType.LOG) // default to LOG
+  const [value, setValue] = useState<TabType>(TabType.HOME)
   const router = useRouter()
   const onChange = (value: string) => {
     setValue(value as TabType)
