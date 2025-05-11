@@ -54,7 +54,7 @@ export default function TableTalk() {
               return (
                 <div
                   key={char.id}
-                  className='absolute flex flex-col items-center'
+                  className='absolute flex flex-col items-center transition-transform duration-700'
                   style={{
                     left: x,
                     top: y,
