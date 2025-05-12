@@ -7,7 +7,7 @@ import type { Player } from '@/models/characters.dto'
 import { useRef, useState } from 'react'
 import Container from '../Container'
 
-const RADIUS = 140 // 円卓の半径(px)
+const RADIUS = 120 // 円卓の半径(px)
 const OUTER_MARGIN = 40
 const TABLE_SIZE = 90
 const CENTER = RADIUS + OUTER_MARGIN
@@ -19,7 +19,6 @@ export function Icon({
   name,
   theme_color,
   idx,
-  active,
   selected,
   rotation,
   handleSelect
@@ -27,14 +26,10 @@ export function Icon({
   x: number
   y: number
   idx: number
-  active: number
   selected: number
   rotation: number
   handleSelect: (idx: number) => void
 }) {
-  // アクティブ時と非アクティブ時でサイズを決定
-  const iconSize = active === idx ? 80 : 64 // w-20=80px, w-16=64px
-
   return (
     <div
       key={id}
@@ -42,31 +37,25 @@ export function Icon({
       style={{
         left: x,
         top: y,
-        // アイコンの中心を常に同じ位置に
-        marginLeft: -iconSize / 2,
-        marginTop: -iconSize / 2,
-        transform: `rotate(${-rotation}deg)`,
-        willChange: 'transform'
+        transform: `translate(-50%, -50%) rotate(${-rotation}deg)`
       }}
     >
       <Button
         onClick={() => handleSelect(idx)}
-        variant={active === idx ? 'default' : 'outline'}
+        variant={selected === idx ? 'default' : 'outline'}
         aria-label={name}
         className={cn(
           'flex items-center justify-center select-none transition-all duration-300 cursor-pointer font-bold rounded-full text-white p-0',
-          active === idx
+          selected === idx
             ? 'z-20 border-4 border-white shadow-xl w-20 h-20 text-lg'
-            : selected === idx
-              ? 'z-10 border-2 border-gray-300 shadow-md w-16 h-16 text-base ring-2 ring-primary/60'
-              : 'z-10 border-2 border-gray-300 shadow-md w-16 h-16 text-base'
+            : 'z-10 border-2 border-gray-300 shadow-md w-16 h-16 text-base'
         )}
         style={{
           background: theme_color
         }}
       >
-        <Avatar className={cn('rounded-full overflow-hidden', active === idx ? 'w-20 h-20' : 'w-16 h-16')}>
-          <AvatarImage src={`/assets/${id}.png`} alt={name} draggable={false} className='w-full h-full object-cover' />
+        <Avatar className='w-full h-full'>
+          <AvatarImage src={`/assets/${id}.png`} alt={name} draggable={false} />
           <AvatarFallback>{name.slice(0, 2)}</AvatarFallback>
         </Avatar>
       </Button>
@@ -76,21 +65,18 @@ export function Icon({
 }
 
 export default function TableTalk() {
-  const [selected, setSelected] = useState(0) // 目標インデックス
-  const [rotation, setRotation] = useState(270)
+  const [selected, setSelected] = useState(0) // 選択中キャラindex
+  const [rotation, setRotation] = useState(270) // 現在の回転角
   const prevSelected = useRef(0)
 
   const anglePer = 360 / characters.length
-
-  // 現在の回転角からアクティブなインデックスを逆算
-  const active = Math.round((270 - rotation) / anglePer) % characters.length
 
   // キャラ選択時、最短経路で回転
   const handleSelect = (idx: number) => {
     if (idx === selected) return
     const from = 270 - prevSelected.current * anglePer
     const to = 270 - idx * anglePer
-    const diff = ((to - from + 540) % 360) - 180
+    const diff = ((to - from + 540) % 360) - 180 // -180〜180の範囲に正規化
     setRotation((r) => r + diff)
     setSelected(idx)
     prevSelected.current = idx
@@ -125,7 +111,6 @@ export default function TableTalk() {
                   x={x}
                   y={y}
                   idx={idx}
-                  active={((active % characters.length) + characters.length) % characters.length}
                   selected={selected}
                   rotation={rotation}
                   handleSelect={handleSelect}
