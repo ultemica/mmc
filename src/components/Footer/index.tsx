@@ -13,9 +13,9 @@ export default function Footer() {
   }
   return (
     <div
-      className='w-full bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-700 z-50'
+      className='w-full bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-700 z-50 pb-4'
       style={{
-        paddingBottom: 'env(safe-area-inset-bottom, 16px)'
+        paddingBottom: 'constant(safe-area-inset-bottom, 16px)'
       }}
     >
       <Tabs value={value} onValueChange={onChange}>
