@@ -15,14 +15,7 @@ export async function POST(request: NextRequest) {
 
     // MMCのインスタンスを取得し、メッセージを送信
     const mmc = MMC.instance()
-<<<<<<< HEAD:src/app/api/chat/completions/route.ts
     return NextResponse.json(await mmc.talk({ content: body.content, id: 0 }))
-=======
-    await mmc.talk({ message, id })
-
-    // 成功のレスポンスを返す
-    return NextResponse.json({ status: 'success', message: 'Message sent successfully' })
->>>>>>> 8503c0c (refactor(api): update MMC import path and instance method usage):src/api/chats/route.ts
   } catch (error) {
     console.error('Error in API route:', error)
     return NextResponse.json({ error: 'Internal Server Error' }, { status: 500 })
