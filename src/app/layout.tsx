@@ -29,7 +29,7 @@ export default async function RootLayout({
         <meta name='theme-color' content='#0A0A0A' media='(prefers-color-scheme: dark)' />
         <meta name='viewport' content='width=device-width, initial-scale=1, user-scalable=no viewport-fit=cover' />
       </head>
-      <body className='bg-[#18181b] text-gray-200 h-screen flex flex-col'>
+      <body className='bg-[#18181b] text-gray-200 min-h-screen flex flex-col'>
         <Header />
         {children}
         <Footer />
