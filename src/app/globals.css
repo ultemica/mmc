@@ -3,4 +3,6 @@
 
 html {
   user-select: none;
+  touch-action: manipulation;
+  /* overscroll-behavior: none; */
 }

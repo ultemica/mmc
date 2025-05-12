@@ -7,7 +7,7 @@ import type { Player } from '@/models/characters.dto'
 import { useRef, useState } from 'react'
 import Container from '../Container'
 
-const RADIUS = 140 // 円卓の半径(px)
+const RADIUS = 120 // 円卓の半径(px)
 const OUTER_MARGIN = 40
 const TABLE_SIZE = 90
 const CENTER = RADIUS + OUTER_MARGIN

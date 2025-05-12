@@ -54,12 +54,10 @@ export default function Header() {
         'flex items-center'
       )}
     >
-      <div className='flex items-center justify-between px-4 sm:px-0 py-4 sm:py-6 mx-auto w-full sm:max-w-xl '>
+      <div className='flex items-center justify-between px-4 sm:px-4 py-4 mx-auto w-full sm:max-w-6xl '>
         <div className='flex items-center gap-4'>
           <span className='flex items-center justify-center'>
-            {Icon && (
-              <Icon className={cn(phase?.color, 'drop-shadow text-2xl sm:text-3xl')} aria-label={phase?.label} />
-            )}
+            {Icon && <Icon className={cn(phase?.color, 'drop-shadow text-2xl')} aria-label={phase?.label} />}
           </span>
           <span className='font-bold text-lg sm:text-xl text-gray-800 dark:text-gray-100 tracking-wide select-none drop-shadow'>
             Day {system.day}
