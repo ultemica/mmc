@@ -3,4 +3,5 @@
 
 html {
   user-select: none;
+  touch-action: manipulation;
 }
