@@ -15,7 +15,7 @@ export default function Footer() {
     <div
       className='w-full bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-700 z-50'
       style={{
-        paddingBottom: 'env(safe-area-inset-bottom)'
+        paddingBottom: '16px'
       }}
     >
       <Tabs value={value} onValueChange={onChange}>
