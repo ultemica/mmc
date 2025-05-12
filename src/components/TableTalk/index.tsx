@@ -19,6 +19,7 @@ export function Icon({
   name,
   theme_color,
   idx,
+  active,
   selected,
   rotation,
   handleSelect
@@ -26,6 +27,7 @@ export function Icon({
   x: number
   y: number
   idx: number
+  active: number
   selected: number
   rotation: number
   handleSelect: (idx: number) => void
@@ -38,24 +40,26 @@ export function Icon({
         left: x,
         top: y,
         transform: `translate(-50%, -50%) rotate(${-rotation}deg)`,
-        willChange: 'transform' // ← 追加
+        willChange: 'transform'
       }}
     >
       <Button
         onClick={() => handleSelect(idx)}
-        variant={selected === idx ? 'default' : 'outline'}
+        variant={active === idx ? 'default' : 'outline'}
         aria-label={name}
         className={cn(
           'flex items-center justify-center select-none transition-all duration-300 cursor-pointer font-bold rounded-full text-white p-0',
-          selected === idx
+          active === idx
             ? 'z-20 border-4 border-white shadow-xl w-20 h-20 text-lg'
-            : 'z-10 border-2 border-gray-300 shadow-md w-16 h-16 text-base'
+            : selected === idx
+              ? 'z-10 border-2 border-gray-300 shadow-md w-16 h-16 text-base ring-2 ring-primary/60'
+              : 'z-10 border-2 border-gray-300 shadow-md w-16 h-16 text-base'
         )}
         style={{
           background: theme_color
         }}
       >
-        <Avatar className={cn('rounded-full overflow-hidden', selected === idx ? 'w-20 h-20' : 'w-16 h-16')}>
+        <Avatar className={cn('rounded-full overflow-hidden', active === idx ? 'w-20 h-20' : 'w-16 h-16')}>
           <AvatarImage src={`/assets/${id}.png`} alt={name} draggable={false} className='w-full h-full object-cover' />
           <AvatarFallback>{name.slice(0, 2)}</AvatarFallback>
         </Avatar>
@@ -66,18 +70,21 @@ export function Icon({
 }
 
 export default function TableTalk() {
-  const [selected, setSelected] = useState(0) // 選択中キャラindex
-  const [rotation, setRotation] = useState(270) // 現在の回転角
+  const [selected, setSelected] = useState(0) // 目標インデックス
+  const [rotation, setRotation] = useState(270)
   const prevSelected = useRef(0)
 
   const anglePer = 360 / characters.length
+
+  // 現在の回転角からアクティブなインデックスを逆算
+  const active = Math.round((270 - rotation) / anglePer) % characters.length
 
   // キャラ選択時、最短経路で回転
   const handleSelect = (idx: number) => {
     if (idx === selected) return
     const from = 270 - prevSelected.current * anglePer
     const to = 270 - idx * anglePer
-    const diff = ((to - from + 540) % 360) - 180 // -180〜180の範囲に正規化
+    const diff = ((to - from + 540) % 360) - 180
     setRotation((r) => r + diff)
     setSelected(idx)
     prevSelected.current = idx
@@ -112,6 +119,7 @@ export default function TableTalk() {
                   x={x}
                   y={y}
                   idx={idx}
+                  active={((active % characters.length) + characters.length) % characters.length}
                   selected={selected}
                   rotation={rotation}
                   handleSelect={handleSelect}
