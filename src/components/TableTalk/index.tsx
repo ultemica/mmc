@@ -54,8 +54,8 @@ export function Icon({
           background: theme_color
         }}
       >
-        <Avatar className='w-full h-full'>
-          <AvatarImage src={`/assets/${id}.png`} alt={name} draggable={false} />
+        <Avatar className={cn('rounded-full overflow-hidden', selected === idx ? 'w-20 h-20' : 'w-16 h-16')}>
+          <AvatarImage src={`/assets/${id}.png`} alt={name} draggable={false} className='w-full h-full object-cover' />
           <AvatarFallback>{name.slice(0, 2)}</AvatarFallback>
         </Avatar>
       </Button>
