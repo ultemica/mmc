@@ -1,4 +1,4 @@
-import type { Message } from '@/models/characters.dto'
+import type { Message } from '@/models/message.dto'
 
 export const messages: Message[] = [
   {

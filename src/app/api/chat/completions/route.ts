@@ -1,22 +1,21 @@
+import { MMC } from '@/lib/client'
 import { type NextRequest, NextResponse } from 'next/server'
-import { MMC } from '../../../path/to/MMC' // MMCクラスをインポート
 
 // メッセージを受け取って、MMC クラスを使って返答を得る処理
 export async function POST(request: NextRequest) {
   try {
     // リクエストボディからメッセージを取得
-    const { message, id } = await request.json()
+    // const { message, id } = await request.json()
 
-    if (!message || !id) {
-      return NextResponse.json({ error: 'Message and ID are required' }, { status: 400 })
-    }
+    const body = await request.json()
+
+    // if (!message || !id) {
+    //   return NextResponse.json({ error: 'Message and ID are required' }, { status: 400 })
+    // }
 
     // MMCのインスタンスを取得し、メッセージを送信
-    const mmc = MMC.getInstance()
-    await mmc.talk({ message, id })
-
-    // 成功のレスポンスを返す
-    return NextResponse.json({ status: 'success', message: 'Message sent successfully' })
+    const mmc = MMC.instance()
+    return NextResponse.json(await mmc.talk({ content: body.content, id: 0 }))
   } catch (error) {
     console.error('Error in API route:', error)
     return NextResponse.json({ error: 'Internal Server Error' }, { status: 500 })
