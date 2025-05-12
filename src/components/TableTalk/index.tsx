@@ -32,6 +32,9 @@ export function Icon({
   rotation: number
   handleSelect: (idx: number) => void
 }) {
+  // アクティブ時と非アクティブ時でサイズを決定
+  const iconSize = active === idx ? 80 : 64 // w-20=80px, w-16=64px
+
   return (
     <div
       key={id}
@@ -39,7 +42,10 @@ export function Icon({
       style={{
         left: x,
         top: y,
-        transform: `translate(-50%, -50%) rotate(${-rotation}deg)`,
+        // アイコンの中心を常に同じ位置に
+        marginLeft: -iconSize / 2,
+        marginTop: -iconSize / 2,
+        transform: `rotate(${-rotation}deg)`,
         willChange: 'transform'
       }}
     >
