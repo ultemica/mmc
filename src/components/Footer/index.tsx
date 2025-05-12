@@ -12,7 +12,12 @@ export default function Footer() {
     setValue(value as TabType)
   }
   return (
-    <div className='w-full bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-700 z-50'>
+    <div
+      className='w-full bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-700 z-50'
+      style={{
+        marginBottom: 'env(safe-area-inset-bottom)'
+      }}
+    >
       <Tabs value={value} onValueChange={onChange}>
         <TabsList className='w-full max-w-xl mx-auto flex justify-around h-16'>
           {tabs.map((tab) => {
