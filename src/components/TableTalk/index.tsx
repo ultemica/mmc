@@ -37,7 +37,8 @@ export function Icon({
       style={{
         left: x,
         top: y,
-        transform: `translate(-50%, -50%) rotate(${-rotation}deg)`
+        transform: `translate(-50%, -50%) rotate(${-rotation}deg)`,
+        willChange: 'transform' // ← 追加
       }}
     >
       <Button
